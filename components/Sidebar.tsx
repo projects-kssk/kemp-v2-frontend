@@ -21,11 +21,10 @@ interface NavItem {
 }
 
 const mainNavItems: NavItem[] = [
-  { name: "Home", href: "/", icon: <HomeIcon /> },
+  // { name: "Home", href: "/", icon: <HomeIcon /> },
   { name: "Dashboard", href: "/dashboard", icon: <DashboardIcon /> },
-  { name: "Analytics", href: "/analytics", icon: <AnalyticsIcon /> },
-  { name: "Users", href: "/users", icon: <UsersIcon /> },
-  { name: "Documents", href: "/documents", icon: <DocumentIcon /> },
+  { name: "Devices", href: "/devices", icon: <AnalyticsIcon /> },
+  { name: "Map", href: "/map", icon: <DocumentIcon /> },
 ];
 
 const bottomNavItems: NavItem[] = [

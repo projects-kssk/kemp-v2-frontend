@@ -28,7 +28,10 @@ export function Navbar() {
               href="/"
               className="px-4 text-xl sm:text-2xl font-bold text-text-primary hover:text-accent-primary transition-colors"
             >
-              NextTemplate
+              KEMP
+              <span className="ml-0.5 text-sm text-accent-primary align-top">
+                v2
+              </span>
             </Link>
           </div>
 
@@ -36,7 +39,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center space-x-6">
             <NavLink href="/">Home</NavLink>
             <NavLink href="/dashboard">Dashboard</NavLink>
-            <NavLink href="/analytics">Analytics</NavLink>
+            <NavLink href="/map">Map</NavLink>
           </div>
 
           {/* Right section */}
