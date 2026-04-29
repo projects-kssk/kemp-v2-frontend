@@ -46,14 +46,15 @@ export function Navbar() {
 
             {/* User menu placeholder */}
             <div className="hidden sm:flex items-center">
-              <button
+              <Link
+                href="/profile"
                 className="flex items-center gap-2 p-1.5 rounded-lg text-text-secondary hover:bg-interactive-bg transition-colors"
                 aria-label="User menu"
               >
                 <div className="w-8 h-8 rounded-full bg-accent-primary flex items-center justify-center text-text-inverse text-sm font-medium">
                   <UserIcon />
                 </div>
-              </button>
+              </Link>
             </div>
           </div>
         </div>
