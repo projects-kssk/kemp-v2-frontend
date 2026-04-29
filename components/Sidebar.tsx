@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useSidebar } from "@/lib/sidebar-context";
+import { authClient } from "@/lib/auth-client";
 import {
-  HomeIcon,
   DashboardIcon,
   AnalyticsIcon,
-  UsersIcon,
   DocumentIcon,
   SettingsIcon,
   CollapseIcon,
@@ -18,6 +17,7 @@ interface NavItem {
   name: string;
   href: string;
   icon: React.ReactNode;
+  action?: "sign-out";
 }
 
 const mainNavItems: NavItem[] = [
@@ -29,7 +29,7 @@ const mainNavItems: NavItem[] = [
 
 const bottomNavItems: NavItem[] = [
   { name: "Settings", href: "/settings", icon: <SettingsIcon /> },
-  { name: "Sign Out", href: "", icon: <SignOutIcon /> },
+  { name: "Sign Out", href: "/login", icon: <SignOutIcon />, action: "sign-out" },
 ];
 
 interface SidebarItemProps {
@@ -45,6 +45,25 @@ function SidebarItem({
   isActive,
   onClick,
 }: SidebarItemProps) {
+  if (item.action === "sign-out") {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        className={`
+          flex w-full items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200
+          min-h-[2.75rem]
+          ${isCollapsed ? "justify-center" : ""}
+          text-text-secondary hover:bg-sidebar-item-hover hover:text-text-primary
+        `}
+        title={isCollapsed ? item.name : undefined}
+      >
+        <span className="shrink-0">{item.icon}</span>
+        {!isCollapsed && <span className="truncate">{item.name}</span>}
+      </button>
+    );
+  }
+
   return (
     <Link
       href={item.href}
@@ -71,6 +90,14 @@ export function Sidebar({ hasNavbar = true }: { hasNavbar?: boolean }) {
   const { isCollapsed, isMobileOpen, toggleCollapse, closeMobile } =
     useSidebar();
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    await authClient.signOut();
+    closeMobile();
+    router.push("/login");
+    router.refresh();
+  };
 
   return (
     <>
@@ -132,7 +159,7 @@ export function Sidebar({ hasNavbar = true }: { hasNavbar?: boolean }) {
               item={item}
               isCollapsed={isCollapsed}
               isActive={pathname === item.href}
-              onClick={closeMobile}
+              onClick={item.action === "sign-out" ? handleSignOut : closeMobile}
             />
           ))}
         </div>
