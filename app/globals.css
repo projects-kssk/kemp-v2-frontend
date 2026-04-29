@@ -1,0 +1,889 @@
+@import "tailwindcss";
+
+/* ========================================
+   THEME CONFIGURATION
+   ======================================== */
+@layer base {
+  :root {
+    color-scheme: light;
+    --calendar-icon-filter: none;
+
+    /* Font families */
+    --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+    --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+    /* ========================================
+      LIGHT THEME COLORS
+      ======================================== */
+
+    /* Background colors */
+    --color-bg-primary: #fafafa;
+    --color-bg-secondary: #f4f4f5;
+    --color-bg-tertiary: #e4e4e7;
+    --color-bg-elevated: #d4d4d8;
+    --color-bg-inverted: #09090b;
+
+    /* Text colors */
+    --color-text-primary: #09090b;
+    --color-text-secondary: #18181b;
+    --color-text-tertiary: #27272a;
+    --color-text-muted: #3f3f46;
+    --color-text-inverse: #fafafa;
+
+    /* Border colors */
+    --color-border-primary: #d4d4d8;
+    --color-border-secondary: #a1a1aa;
+    --color-border-focus: #8b5cf6;
+
+    /* Accent/Brand colors */
+    --color-accent-primary: #8b5cf6;
+    --color-accent-primary-hover: #a78bfa;
+    --color-accent-secondary: #6d28d9;
+    --color-accent-success: #16a34a;
+    --color-accent-success-hover: #22c55e;
+    --color-accent-warning: #eab308;
+    --color-accent-warning-hover: #facc15;
+    --color-accent-danger: #ef4444;
+    --color-accent-danger-hover: #f87171;
+    --color-accent-information: #3b82f6;
+    --color-accent-information-hover: #60a5fa;
+    --color-accent-orange: #ff5722;
+    --color-accent-orange-hover: #ff7644;
+
+    /* Interactive element colors */
+    --color-interactive-bg: #fafafa;
+    --color-interactive-bg-hover: #e5e7eb;
+    --color-interactive-bg-active: #d1d5db;
+
+    /* Sidebar specific */
+    --color-sidebar-bg: #f9fafb;
+    --color-sidebar-border: #e5e7eb;
+    --color-sidebar-item-hover: #f3f4f6;
+    --color-sidebar-item-active: #e4e4e7;
+    --color-sidebar-item-active-text: #8b5cf6;
+
+    /* Navbar specific */
+    --color-navbar-bg: #fafafa;
+    --color-navbar-border: #e5e7eb;
+
+    /* Card/Surface colors */
+    --color-card-bg: #f4f4f5;
+    --color-card-border: #d4d4d8;
+    --color-card-shadow: rgba(0, 0, 0, 0.1);
+
+    /* Form elements */
+    --color-input-bg: #f4f4f5;
+    --color-input-border: #d1d5db;
+    --color-input-border-focus: #8b5cf6;
+
+    --coffee-beans-url: url('/patterns/coffee-beans-light.jpg');
+    --coffee-beans-opacity: 0.85;
+    --coffee-overlay-bg: transparent;
+  }
+
+  .tippy-box[data-theme~="custom"] {
+    background-color: var(--color-bg-inverted);
+    color: rgb(0, 0, 0);
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  /*Tippy arrow style */
+  .tippy-box[data-theme~="custom"] .tippy-arrow {
+    color: var(--color-bg-inverted);
+  }
+
+  /*Tippy inner content */
+  .tippy-box[data-theme~="custom"] .tippy-content {
+    padding: 6px;
+  }
+
+  /* ========================================
+   DARK THEME COLORS
+   ======================================== */
+  .dark {
+    color-scheme: dark;
+    --calendar-icon-filter: none;
+
+    /* Background colors */
+    --color-bg-primary: #09090b;
+    --color-bg-secondary: #18181b;
+    --color-bg-tertiary: #27272a;
+    --color-bg-elevated: #3f3f46;
+    --color-bg-inverted: #fafafa;
+
+    /* Text colors */
+    --color-text-primary: #f4f4f4;
+    --color-text-secondary: #e4e4e4;
+    --color-text-tertiary: #c0c0c0;
+    --color-text-muted: #919191;
+    --color-text-inverse: #09090b;
+
+    /* Border colors */
+    --color-border-primary: #27272a;
+    --color-border-secondary: #3f3f46;
+    --color-border-focus: #8b5cf6;
+    ;
+
+    /* Accent/Brand colors */
+    --color-accent-primary: #8b5cf6;
+    --color-accent-primary-hover: #7c3aed;
+    --color-accent-secondary: #6d28d9;
+    --color-accent-success: #16a34a;
+    --color-accent-success-hover: #15803d;
+    --color-accent-warning: #eab308;
+    --color-accent-warning-hover: #ca8a04;
+    --color-accent-danger: #ef4444;
+    --color-accent-danger-hover: #dc2626;
+    --color-accent-information: #3b82f6;
+    --color-accent-information-hover: #2563eb;
+    --color-accent-orange: #ff5722;
+    --color-accent-orange-hover: #ff4500;
+
+    /* Interactive element colors */
+    --color-interactive-bg: #27272a;
+    --color-interactive-bg-hover: #323238;
+    --color-interactive-bg-active: #64748b;
+
+    /* Sidebar specific */
+    --color-sidebar-bg: #09090b;
+    --color-sidebar-border: #27272a;
+    --color-sidebar-item-hover: #18181b;
+    --color-sidebar-item-active: #27272a;
+    --color-sidebar-item-active-text: #8b5cf6;
+
+    /* Navbar specific */
+    --color-navbar-bg: #09090b;
+    --color-navbar-border: #27272a;
+
+    /* Card/Surface colors */
+    --color-card-bg: #18181b;
+    --color-card-border: #27272a;
+    --color-card-shadow: rgba(0, 0, 0, 0.3);
+
+    /* Form elements */
+    --color-input-bg: #18181b;
+    --color-input-border: #27272a;
+    --color-input-border-focus: #8b5cf6;
+
+    --coffee-beans-url: url('/patterns/coffee-beans.jpg');
+    --coffee-beans-opacity: 100;
+  }
+
+  /* Tippy style */
+  .tippy-box[data-theme~="custom"] {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Tippy arrow style */
+  .tippy-box[data-theme~="custom"] .tippy-arrow {
+    color: var(--color-bg-primary);
+  }
+
+  /* Tippy inner content */
+  .tippy-box[data-theme~="custom"] .tippy-content {
+    padding: 6px;
+  }
+}
+
+
+/* ========================================
+   DARK LEGACY THEME COLORS
+   ======================================== */
+.dark-legacy {
+  color-scheme: dark;
+  --calendar-icon-filter: none;
+
+  /* Background colors */
+  --color-bg-primary: #111;
+  --color-bg-secondary: #222;
+  --color-bg-tertiary: #333;
+  --color-bg-elevated: #444;
+  --color-bg-inverted: #eee;
+
+  /* Text colors */
+  --color-text-primary: #f4f4f4;
+  --color-text-secondary: #e4e4e4;
+  --color-text-tertiary: #c0c0c0;
+  --color-text-muted: #919191;
+  --color-text-inverse: #111;
+
+  /* Border colors */
+  --color-border-primary: #333;
+  --color-border-secondary: #444;
+  --color-border-focus: #fff;
+
+  /* Accent/Brand colors */
+  --color-accent-primary: #8b5cf6;
+  --color-accent-primary-hover: #7c3aed;
+  --color-accent-secondary: #6d28d9;
+  --color-accent-success: #16a34a;
+  --color-accent-success-hover: #15803d;
+  --color-accent-warning: #eab308;
+  --color-accent-warning-hover: #ca8a04;
+  --color-accent-danger: #ef4444;
+  --color-accent-danger-hover: #dc2626;
+  --color-accent-information: #3b82f6;
+  --color-accent-information-hover: #2563eb;
+  --color-accent-orange: #ff5722;
+  --color-accent-orange-hover: #ff4500;
+
+  /* Interactive element colors */
+  --color-interactive-bg: #333;
+  --color-interactive-bg-hover: #666;
+  --color-interactive-bg-active: #64748b;
+
+  /* Sidebar specific */
+  --color-sidebar-bg: #111;
+  --color-sidebar-border: #333;
+  --color-sidebar-item-hover: #333;
+  --color-sidebar-item-active: #222;
+  --color-sidebar-item-active-text: #ff4500;
+
+  /* Navbar specific */
+  --color-navbar-bg: #111;
+  --color-navbar-border: #333;
+
+  /* Card/Surface colors */
+  --color-card-bg: #222;
+  --color-card-border: #333;
+  --color-card-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Form elements */
+  --color-input-bg: #333;
+  --color-input-border: #444;
+  --color-input-border-focus: #8b5cf6;
+}
+
+/* ========================================
+   MINT THEME COLORS (example of a custom theme)
+   ======================================== */
+
+/* .mint {
+
+} */
+
+
+/* ========================================
+   TAILWIND V4 THEME EXTENSION
+   Register CSS variables as Tailwind colors
+   ======================================== */
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Background colors */
+  --color-bg-primary: var(--color-bg-primary);
+  --color-bg-secondary: var(--color-bg-secondary);
+  --color-bg-tertiary: var(--color-bg-tertiary);
+  --color-bg-elevated: var(--color-bg-elevated);
+
+  /* Text colors */
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-tertiary: var(--color-text-tertiary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-inverse: var(--color-text-inverse);
+
+  /* Border colors */
+  --color-border-primary: var(--color-border-primary);
+  --color-border-secondary: var(--color-border-secondary);
+
+  /* Accent colors */
+  --color-accent-primary: var(--color-accent-primary);
+  --color-accent-primary-hover: var(--color-accent-primary-hover);
+  --color-accent-success: var(--color-accent-success);
+  --color-accent-success-hover: var(--color-accent-success-hover);
+  --color-accent-danger: var(--color-accent-danger);
+  --color-accent-danger-hover: var(--color-accent-danger-hover);
+  --color-accent-information: var(--color-accent-information);
+  --color-accent-information-hover: var(--color-accent-information-hover);
+
+
+  /* Interactive colors */
+  --color-interactive-bg: var(--color-interactive-bg);
+  --color-interactive-bg-hover: var(--color-interactive-bg-hover);
+
+  /* Sidebar colors */
+  --color-sidebar-bg: var(--color-sidebar-bg);
+  --color-sidebar-border: var(--color-sidebar-border);
+  --color-sidebar-item-hover: var(--color-sidebar-item-hover);
+  --color-sidebar-item-active: var(--color-sidebar-item-active);
+  --color-sidebar-item-active-text: var(--color-sidebar-item-active-text);
+
+  /* Navbar colors */
+  --color-navbar-bg: var(--color-navbar-bg);
+  --color-navbar-border: var(--color-navbar-border);
+}
+
+/* ========================================
+   BASE STYLES
+   These apply theme colors to all base elements
+   ======================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-primary);
+}
+
+/* Paragraphs and text */
+
+/* Links */
+a {
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--color-accent-secondary-hover);
+}
+
+/* Tables */
+table {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border-tertiary);
+}
+
+th {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-tertiary);
+}
+
+th:hover {
+  background-color: var(--color-interactive-bg);
+}
+
+td {
+  color: var(--color-text-secondary);
+  border-color: var(--color-border-tertiary);
+}
+
+tr:hover {
+  background-color: var(--color-interactive-bg);
+}
+
+/* Form elements */
+@layer base {
+
+  input,
+  textarea,
+  select {
+    background-color: var(--color-input-bg);
+    border-color: var(--color-input-border);
+    color: var(--color-text-primary);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+  }
+
+  /* Date/time calendar icon — tint to match text color */
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator,
+  input[type="month"]::-webkit-calendar-picker-indicator,
+  input[type="week"]::-webkit-calendar-picker-indicator {
+    opacity: 0.6;
+    cursor: pointer;
+    filter: var(--calendar-icon-filter, none);
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator:hover,
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover,
+  input[type="time"]::-webkit-calendar-picker-indicator:hover,
+  input[type="month"]::-webkit-calendar-picker-indicator:hover,
+  input[type="week"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+  }
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Buttons - base reset */
+button {
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-border-focus) 50%, transparent);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Code blocks */
+code {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-mono);
+}
+
+pre {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-primary);
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Horizontal rules */
+hr {
+  border-color: var(--color-border-primary);
+}
+
+/* Lists */
+ul,
+ol {
+  color: var(--color-text-secondary);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--color-accent-primary);
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+/* Selection */
+::selection {
+  background-color: color-mix(in srgb, var(--color-accent-primary) 50%, transparent);
+  color: var(--color-text-primary);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+/* ========================================
+   UTILITY CLASSES
+   Reusable themed utility classes
+   ======================================== */
+
+/* Themed backgrounds */
+.bg-themed {
+  background-color: var(--color-bg-primary);
+}
+
+.bg-themed-secondary {
+  background-color: var(--color-bg-secondary);
+}
+
+.bg-themed-elevated {
+  background-color: var(--color-bg-elevated);
+}
+
+/* Themed text */
+.text-themed {
+  color: var(--color-text-primary);
+}
+
+.text-themed-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-themed-muted {
+  color: var(--color-text-muted);
+}
+
+/* Themed borders */
+.border-primary {
+  border: 1px solid var(--color-border-primary);
+}
+
+.border-secondary {
+  border: 1px solid var(--color-border-secondary);
+}
+
+/* Border Focus utility — apply as a class to any focusable element */
+@utility border-focus {
+  &:focus {
+    border-color: var(--color-border-focus);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-border-focus) 50%, transparent);
+  }
+}
+
+/* Themed cards */
+.card-themed {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-themed:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Themed interactive elements */
+.interactive-themed {
+  background-color: var(--color-interactive-bg);
+  transition: background-color 0.15s ease;
+}
+
+.interactive-themed:hover {
+  background-color: var(--color-interactive-bg-hover);
+}
+
+.interactive-themed:active {
+  background-color: var(--color-interactive-bg-active);
+}
+
+/* Primary button */
+
+
+.btn-primary {
+  background-color: var(--color-accent-primary);
+  color: #fafafa;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-primary-hover);
+  color: #fafafa;
+}
+
+/* Secondary button */
+.btn-secondary {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border-primary);
+  color: var(--color-text-primary);
+}
+
+/* Tertiary button */
+.btn-tertiary {
+  background-color: var(--color-bg-inverted);
+  color: var(--color-text-inverse);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-tertiary:hover {
+  /* background-color: var(--color-bg-secondary);
+  color: var(--color-accent-primary); */
+  color: var(--color-text-inverse);
+}
+
+/* Green button */
+.btn-green {
+  background-color: var(--color-accent-success);
+  color: #fafafa;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+}
+
+.btn-green:hover {
+  background-color: var(--color-accent-success-hover);
+}
+
+/* Yellow button */
+.btn-yellow {
+  background-color: var(--color-accent-warning);
+  color: #fafafa;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+}
+
+.btn-yellow:hover {
+  background-color: var(--color-accent-warning-hover);
+}
+
+/* Red button */
+.btn-red {
+  background-color: var(--color-accent-danger);
+  color: #fafafa;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+}
+
+.btn-red:hover {
+  background-color: var(--color-accent-danger-hover);
+}
+
+/* Blue button */
+.btn-blue {
+  background-color: var(--color-accent-information);
+  color: #fafafa;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+}
+
+.btn-blue:hover {
+  background-color: var(--color-accent-information-hover);
+}
+
+/* Orange button */
+.btn-orange {
+  background-color: var(--color-accent-orange);
+  color: #fafafa;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+}
+
+.btn-orange:hover {
+  background-color: var(--color-accent-orange-hover);
+}
+
+
+/* Badges */
+
+.badge-primary {
+  background-color: var(--color-accent-primary);
+  color: #fafafa;
+  border-radius: 9999px;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block;
+}
+
+.badge-secondary {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  border-radius: 9999px;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block;
+}
+
+.badge-green {
+  background-color: var(--color-accent-success);
+  color: color-mix(in srgb, #fafafa 95%, var(--color-accent-success));
+  border-radius: 9999px;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block;
+}
+
+.badge-yellow {
+  background-color: var(--color-accent-warning);
+  color: color-mix(in srgb, #fafafa 95%, var(--color-accent-warning));
+  border-radius: 9999px;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block;
+}
+
+.badge-red {
+  background-color: var(--color-accent-danger);
+  color: color-mix(in srgb, #fafafa 95%, var(--color-accent-danger));
+  border-radius: 9999px;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block;
+}
+
+.badge-blue {
+  background-color: var(--color-accent-information);
+  color: color-mix(in srgb, #fafafa 95%, var(--color-accent-information));
+  border-radius: 9999px;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block;
+}
+
+.badge-orange {
+  background-color: var(--color-accent-orange);
+  color: color-mix(in srgb, #fafafa 95%, var(--color-accent-orange));
+  border-radius: 9999px;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block;
+}
+
+/* ===============================================
+   ALL PURPOSE TABLE COMPONENT COLORS
+   =============================================== */
+
+.apt-table-container {
+  color: var(--color-text-primary) !important;
+  border: 1px solid var(--color-border-primary) !important;
+  background-color: var(--color-bg-secondary) !important;
+}
+
+/* Empty state */
+.apt-empty-state {
+  color: var(--color-text-muted) !important;
+}
+
+/* Table header */
+.apt-thead {
+  background-color: var(--color-bg-tertiary) !important;
+}
+
+.apt-th-sortable:hover {
+  background-color: var(--color-interactive-bg-hover) !important;
+}
+
+/* Column resizer */
+.apt-resizer {
+  background-color: var(--color-border-secondary) !important;
+}
+
+.apt-resizer:hover,
+.apt-th:hover .apt-resizer {
+  background-color: var(--color-border-secondary) !important;
+}
+
+
+/* Table body */
+.apt-row:hover {
+  background-color: var(--color-interactive-bg) !important;
+}
+
+.apt-row-expanded {
+  background-color: var(--color-interactive-bg) !important;
+}
+
+/* Footer / Pagination */
+.apt-footer {
+  background-color: var(--color-bg-tertiary) !important;
+}
+
+.apt-footer-center {
+  color: var(--color-text-primary) !important;
+}
+
+
+/* Rows per page selector */
+.apt-rows-label {
+  color: var(--color-text-muted) !important;
+}
+
+.apt-rows-select {
+  background-color: var(--color-input-bg) !important;
+  color: var(--color-text-primary) !important;
+  border: 1px solid var(--color-input-border) !important;
+}
+
+/* Pagination buttons */
+.apt-btn {
+  background-color: var(--color-input-bg) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.apt-btn:hover:not(:disabled) {
+  background-color: var(--color-interactive-bg-hover) !important;
+}
+
+/* ===============================================
+   COLUMN VISIBILITY TOGGLE COMPONENT COLORS
+   =============================================== */
+
+.apt-column-toggle-btn {
+  border: 1px solid var(--color-border-primary) !important;
+  background-color: var(--color-bg-secondary) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.apt-column-toggle-btn:hover {
+  background-color: var(--color-bg-tertiary) !important;
+}
+
+
+/* Dropdown menu */
+.apt-column-toggle-menu {
+  border: 1px solid var(--color-border-primary) !important;
+  background-color: var(--color-bg-secondary) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+.apt-column-toggle-header {
+  border-bottom: 1px solid var(--color-border-primary) !important;
+}
+
+.apt-column-toggle-title {
+  color: var(--color-text-secondary) !important;
+}
+
+.apt-column-toggle-select-all {
+  color: var(--color-accent-primary) !important;
+}
+
+.apt-column-toggle-item:hover {
+  background-color: var(--color-interactive-bg) !important;
+}
+
+.apt-column-toggle-checkbox {
+  color: var(--color-accent-primary) !important;
+  accent-color: var(--color-accent-primary) !important;
+}
+
+.apt-column-toggle-label {
+  color: var(--color-text-primary) !important;
+}

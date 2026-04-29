@@ -1,0 +1,6 @@
+{
+  "tailwindCSS.lint.cssConflict": "ignore",
+  "tailwindCSS.lint.recommendedVariantOrder": "warning",
+  "css.lint.unknownAtRules": "ignore",
+  "tailwindCSS.experimental.classRegex": []
+}
