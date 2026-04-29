@@ -30,12 +30,16 @@ export function SidebarProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    // Restore collapsed state from localStorage
-    const savedCollapsed = localStorage.getItem("sidebar-collapsed");
-    if (savedCollapsed !== null) {
-      setIsCollapsed(savedCollapsed === "true");
-    }
+    const frame = requestAnimationFrame(() => {
+      setMounted(true);
+      const savedCollapsed = localStorage.getItem("sidebar-collapsed");
+
+      if (savedCollapsed !== null) {
+        setIsCollapsed(savedCollapsed === "true");
+      }
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   const toggleCollapse = useCallback(() => {
