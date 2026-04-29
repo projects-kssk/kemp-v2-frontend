@@ -44,15 +44,19 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Initialize theme from localStorage or system preference
   useEffect(() => {
-    setMounted(true);
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
-    const initialTheme = savedTheme || "system";
-    setThemeState(initialTheme);
+    const frame = requestAnimationFrame(() => {
+      setMounted(true);
+      const savedTheme = localStorage.getItem("theme") as Theme | null;
+      const initialTheme = savedTheme || "system";
+      setThemeState(initialTheme);
 
-    const resolved =
-      initialTheme === "system" ? getSystemTheme() : initialTheme;
-    setResolvedTheme(resolved);
-    applyTheme(resolved);
+      const resolved =
+        initialTheme === "system" ? getSystemTheme() : initialTheme;
+      setResolvedTheme(resolved);
+      applyTheme(resolved);
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   // Listen for system theme changes
