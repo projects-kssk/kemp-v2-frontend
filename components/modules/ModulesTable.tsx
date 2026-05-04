@@ -1,6 +1,8 @@
 "use client";
 
 import { Table, type TableHeader } from "all-purpose-table";
+import { useMemo, useState } from "react";
+import { SearchInput } from "@/components/SearchInput";
 
 type ModuleStatus = "Online" | "Offline";
 
@@ -328,6 +330,102 @@ const moduleRows: ModuleRow[] = [
     lastData: "17s",
     action: "Get Data",
   },
+  {
+    id: "Device-25",
+    deviceName: "HALL3_SCREWING",
+    status: "Offline",
+    temperature: "23.5 °C",
+    humidity: "32 %",
+    light: emptyValue,
+    relay1: emptyValue,
+    relay2: emptyValue,
+    relay3: emptyValue,
+    relay4: emptyValue,
+    thermostat: emptyValue,
+    lastPing: emptyValue,
+    lastData: "2M,1w,3d,14h,25m,24s",
+    action: "Get Data",
+  },
+  {
+    id: "Device-26",
+    deviceName: "HALL3_AIRCON_17",
+    status: "Offline",
+    temperature: "24.2 °C",
+    humidity: emptyValue,
+    light: emptyValue,
+    relay1: emptyValue,
+    relay2: emptyValue,
+    relay3: emptyValue,
+    relay4: emptyValue,
+    thermostat: emptyValue,
+    lastPing: emptyValue,
+    lastData: "9M,2d,18h,12m,4s",
+    action: "Get Data",
+  },
+  {
+    id: "Device-27",
+    deviceName: "OFFICE_68",
+    status: "Online",
+    temperature: "22.9 °C",
+    humidity: "41 %",
+    light: "88 lx",
+    relay1: emptyValue,
+    relay2: emptyValue,
+    relay3: emptyValue,
+    relay4: emptyValue,
+    thermostat: "22.00",
+    lastPing: "19s",
+    lastData: "19s",
+    action: "Get Data",
+  },
+  {
+    id: "Device-28",
+    deviceName: "MEETING_ROOM",
+    status: "Online",
+    temperature: "23.1 °C",
+    humidity: "36 %",
+    light: "121 lx",
+    relay1: emptyValue,
+    relay2: emptyValue,
+    relay3: emptyValue,
+    relay4: emptyValue,
+    thermostat: "23.00",
+    lastPing: "44s",
+    lastData: "44s",
+    action: "Get Data",
+  },
+  {
+    id: "Device-29",
+    deviceName: "WAREHOUSE_SENSOR",
+    status: "Offline",
+    temperature: "18.7 °C",
+    humidity: emptyValue,
+    light: emptyValue,
+    relay1: emptyValue,
+    relay2: emptyValue,
+    relay3: emptyValue,
+    relay4: emptyValue,
+    thermostat: emptyValue,
+    lastPing: emptyValue,
+    lastData: "3M,4d,6h,9m,12s",
+    action: "Get Data",
+  },
+  {
+    id: "Device-30",
+    deviceName: "ROOF_GATEWAY",
+    status: "Online",
+    temperature: "28.4 °C",
+    humidity: "29 %",
+    light: "74 lx",
+    relay1: emptyValue,
+    relay2: emptyValue,
+    relay3: emptyValue,
+    relay4: emptyValue,
+    thermostat: emptyValue,
+    lastPing: "31s",
+    lastData: "31s",
+    action: "Get Data",
+  },
 ];
 
 const moduleHeaders: TableHeader[] = [
@@ -392,40 +490,70 @@ const moduleHeaders: TableHeader[] = [
 ];
 
 export function ModulesTable() {
-  const onlineCount = moduleRows.filter((row) => row.status === "Online").length;
-  const offlineCount = moduleRows.length - onlineCount;
+  const [search, setSearch] = useState("");
+  const [rowsPerPage, setRowsPerPage] = useState(20);
+
+  const filteredRows = useMemo(() => {
+    const normalizedSearch = search.trim().toLowerCase();
+
+    if (!normalizedSearch) {
+      return moduleRows;
+    }
+
+    return moduleRows.filter((row) =>
+      Object.values(row).some((value) =>
+        String(value).toLowerCase().includes(normalizedSearch),
+      ),
+    );
+  }, [search]);
+
+  const onlineCount = filteredRows.filter(
+    (row) => row.status === "Online",
+  ).length;
+  const offlineCount = filteredRows.length - onlineCount;
+  const tableHeight = `${46 + 30 * rowsPerPage + 49}px`;
 
   return (
     <section className="space-y-3">
-      <div className="flex flex-wrap gap-3 text-sm">
-        <span className="rounded-md border border-border-primary bg-themed-secondary px-3 py-1.5 text-text-secondary">
-          Online:{" "}
-          <strong className="font-semibold text-accent-success">
-            {onlineCount}
-          </strong>
-        </span>
-        <span className="rounded-md border border-border-primary bg-themed-secondary px-3 py-1.5 text-text-secondary">
-          Offline:{" "}
-          <strong className="font-semibold text-accent-danger">
-            {offlineCount}
-          </strong>
-        </span>
-        <span className="rounded-md border border-border-primary bg-themed-secondary px-3 py-1.5 text-text-secondary">
-          Total:{" "}
-          <strong className="font-semibold text-text-primary">
-            {moduleRows.length}
-          </strong>
-        </span>
+      <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
+        <div className="flex flex-wrap gap-3 text-sm">
+          <span className="rounded-md border border-border-primary bg-themed-secondary px-3 py-1.5 text-text-secondary">
+            Online:{" "}
+            <strong className="font-semibold text-accent-success">
+              {onlineCount}
+            </strong>
+          </span>
+          <span className="rounded-md border border-border-primary bg-themed-secondary px-3 py-1.5 text-text-secondary">
+            Offline:{" "}
+            <strong className="font-semibold text-accent-danger">
+              {offlineCount}
+            </strong>
+          </span>
+          <span className="rounded-md border border-border-primary bg-themed-secondary px-3 py-1.5 text-text-secondary">
+            Showing:{" "}
+            <strong className="font-semibold text-text-primary">
+              {filteredRows.length}/{moduleRows.length}
+            </strong>
+          </span>
+        </div>
+
+        <SearchInput
+          value={search}
+          onChange={setSearch}
+          placeholder="Search modules..."
+          label="Search modules"
+        />
       </div>
 
-      <div className="overflow-hidden rounded-lg border border-border-primary bg-themed-secondary p-2">
+      <div className="overflow-hidden">
         <Table
           manualHeaders={moduleHeaders}
-          manualRowData={moduleRows}
-          height="calc(100vh - 15rem)"
+          manualRowData={filteredRows}
+          height={tableHeight}
           rowHeight={30}
-          rowsPerPage={25}
-          rowsPerPageOptions={[25, 50, 100]}
+          rowsPerPage={rowsPerPage}
+          rowsPerPageOptions={[20, 50, 100]}
+          onRowsPerPageChange={setRowsPerPage}
           shouldPaginate
           columnWidthsStorageKey="kemp-modules-table-widths"
         />
