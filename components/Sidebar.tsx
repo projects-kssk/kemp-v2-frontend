@@ -25,6 +25,7 @@ const mainNavItems: NavItem[] = [
   { name: "Dashboard", href: "/dashboard", icon: <DashboardIcon /> },
   { name: "Devices", href: "/devices", icon: <AnalyticsIcon /> },
   { name: "Map", href: "/map", icon: <DocumentIcon /> },
+  { name: "Modules", href: "/modules", icon: <AnalyticsIcon /> },
 ];
 
 const bottomNavItems: NavItem[] = [
