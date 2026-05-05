@@ -6,6 +6,7 @@ export { SettingsIcon } from "./SettingsIcon";
 export { AnalyticsIcon } from "./AnalyticsIcon";
 export { DocumentIcon } from "./DocumentIcon";
 export { CollapseIcon } from "./CollapseIcon";
+export { BulbIcon } from "./BulbIcon";
 
 // UI Icons
 export { MenuIcon } from "./MenuIcon";

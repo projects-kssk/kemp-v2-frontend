@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSidebar } from "@/lib/sidebar-context";
+import { TbBulb } from "react-icons/tb";
+import { PiFanBold } from "react-icons/pi";
 import {
   HomeIcon,
   DashboardIcon,
@@ -22,6 +24,12 @@ interface NavItem {
 
 const mainNavItems: NavItem[] = [
   // { name: "Home", href: "/", icon: <HomeIcon /> },
+  { name: "Lighting", href: "/lighting", icon: <TbBulb className="w-5 h-5" /> },
+  {
+    name: "Climatization",
+    href: "/climatization",
+    icon: <PiFanBold className="w-5 h-5" />,
+  },
   { name: "Dashboard", href: "/dashboard", icon: <DashboardIcon /> },
   { name: "Devices", href: "/devices", icon: <AnalyticsIcon /> },
   { name: "Map", href: "/map", icon: <DocumentIcon /> },
@@ -51,7 +59,7 @@ function SidebarItem({
       onClick={onClick}
       className={`
         flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200
-        min-h-[2.75rem]
+        min-h-11
         ${isCollapsed ? "justify-center" : ""}
         ${
           isActive
