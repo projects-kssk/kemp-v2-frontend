@@ -23,7 +23,7 @@ interface NavItem {
 }
 
 const mainNavItems: NavItem[] = [
-  // { name: "Home", href: "/", icon: <HomeIcon /> },
+  { name: "Home", href: "/", icon: <DashboardIcon /> },
   { name: "Lighting", href: "/lighting", icon: <TbBulb className="w-5 h-5" /> },
   {
     name: "Climatization",

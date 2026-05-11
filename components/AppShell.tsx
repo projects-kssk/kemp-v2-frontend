@@ -14,7 +14,7 @@ interface AppShellProps {
 
 export function AppShell({
   children,
-  showNavbar = true,
+  showNavbar = false,
   showSidebar = true,
 }: AppShellProps) {
   const { isCollapsed } = useSidebar();
@@ -57,20 +57,14 @@ export function AppShell({
         {/* Main Content Area */}
         <main
           className={`
-            flex-1 min-h-screen transition-all duration-300
+            flex-1 min-h-0 transition-all duration-300
             ${showNavbarOnMobile ? "pt-16 lg:pt-0" : "pt-0"}
             ${shouldShowNavbar ? "lg:pt-16" : ""}
             ${showSidebarOnMobile ? "lg:pl-0" : "pl-0"}
-            ${
-              shouldShowSidebar
-                ? isCollapsed
-                  ? "lg:pl-16"
-                  : "lg:pl-64"
-                : ""
-            }
+            ${shouldShowSidebar ? (isCollapsed ? "lg:pl-16" : "lg:pl-64") : ""}
           `}
         >
-          <div className={isAuthPage ? "" : "p-4 sm:p-6 lg:p-8"}>
+          <div className={isAuthPage ? "" : "p-1 sm:p-2 lg:p-3 h-full"}>
             {children}
           </div>
         </main>

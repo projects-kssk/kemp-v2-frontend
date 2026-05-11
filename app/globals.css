@@ -557,26 +557,12 @@ blockquote {
 .card-themed {
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-card-border);
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   box-shadow: var(--shadow-sm);
 }
 
 .card-themed:hover {
   box-shadow: var(--shadow-md);
-}
-
-/* Themed interactive elements */
-.interactive-themed {
-  background-color: var(--color-interactive-bg);
-  transition: background-color 0.15s ease;
-}
-
-.interactive-themed:hover {
-  background-color: var(--color-interactive-bg-hover);
-}
-
-.interactive-themed:active {
-  background-color: var(--color-interactive-bg-active);
 }
 
 /* Primary button */
