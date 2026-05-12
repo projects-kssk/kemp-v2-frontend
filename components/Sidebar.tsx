@@ -23,14 +23,13 @@ interface NavItem {
 }
 
 const mainNavItems: NavItem[] = [
-  { name: "Home", href: "/", icon: <DashboardIcon /> },
+  { name: "Dashboard", href: "/", icon: <DashboardIcon /> },
   { name: "Lighting", href: "/lighting", icon: <TbBulb className="w-5 h-5" /> },
   {
     name: "Climatization",
     href: "/climatization",
     icon: <PiFanBold className="w-5 h-5" />,
   },
-  { name: "Dashboard", href: "/dashboard", icon: <DashboardIcon /> },
   { name: "Devices", href: "/devices", icon: <AnalyticsIcon /> },
   { name: "Map", href: "/map", icon: <DocumentIcon /> },
   { name: "Modules", href: "/modules", icon: <AnalyticsIcon /> },

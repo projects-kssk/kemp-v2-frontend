@@ -873,3 +873,32 @@ blockquote {
 .apt-column-toggle-label {
   color: var(--color-text-primary) !important;
 }
+
+::-webkit-slider-thumb {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid rgb(200, 200, 200);
+  cursor: pointer;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid rgb(200, 200, 200);
+  cursor: pointer;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+::-moz-range-thumb:hover {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-slider-thumb:hover {
+  background: var(--color-bg-secondary);
+}

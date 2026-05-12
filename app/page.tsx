@@ -4,6 +4,12 @@ import { FormSwitch } from "@/components/ui/FormSwitch";
 import { useState } from "react";
 import { PiFan, PiTimer } from "react-icons/pi";
 import { MdOutlineLightMode } from "react-icons/md";
+import { FaTemperatureQuarter } from "react-icons/fa6";
+import { FaDroplet } from "react-icons/fa6";
+import { FaWind } from "react-icons/fa6";
+import { FaCloudRain } from "react-icons/fa";
+import { BiSolidWrench } from "react-icons/bi";
+import Link from "next/link";
 
 export default function DashboardPage() {
   const [selectedMenu, setSelectedMenu] = useState("hall1");
@@ -13,7 +19,7 @@ export default function DashboardPage() {
       {/* Activity Section */}
       <div className="h-full grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-[1fr_1fr] gap-3">
         {/* Overview */}
-        <div className="card-themed p-4 col-span-3 h-full flex flex-col justify-center">
+        <div className="card-themed bg-bg-primary! p-4 col-span-3 h-full flex flex-col justify-center">
           <div className="h-full flex flex-row justify-between items-start h-8">
             <div className="flex items-center gap-2">
               <div className="bg-accent-success h-4 w-4 rounded-full mt-0.5" />
@@ -26,6 +32,8 @@ export default function DashboardPage() {
                 { key: "hall3", label: "Hall 3" },
                 { key: "warehouse", label: "Warehouse" },
                 { key: "pmb", label: "PMB" },
+                { key: "frontoffice", label: "Front Office" },
+                { key: "rearoffice", label: "Rear Office" },
               ]}
               activeKey={selectedMenu}
               onChange={(key) => {
@@ -40,9 +48,13 @@ export default function DashboardPage() {
         </div>
 
         {/* Weather */}
-        <div className="card-themed p-4  row-span-2 h-full flex flex-col">
-          <h2 className="text-2xl  mb-4">Weather</h2>
-          <div className="flex items-center gap-6">
+        <div className="relative card-themed p-3  row-span-2 h-full flex flex-col">
+          <p className="absolute top-2 right-2 text-text-muted text-xs font-semibold">
+            Source: Weather API
+          </p>
+
+          <h2 className="text-xl font-semibold">Weather</h2>
+          <div className="flex justify-center items-center gap-6 py-8">
             <div className="flex items-center gap-3">
               <svg
                 className="w-12 h-12 text-yellow-500"
@@ -82,9 +94,9 @@ export default function DashboardPage() {
               </div>
             </div>
           </div>
-          <h3 className="text-lg my-4">Forecast</h3>
-          <div className="flex items-center gap-2">
-            <div className="card-themed rounded-lg p-4 flex-1">
+          <h3 className="text-lg my-4 font-semibold">Forecast</h3>
+          <div className="flex items-center gap-2 bg-bg-primary/50 rounded-lg divide-x-2 divide-border-primary  py-4">
+            <div className="px-4 flex-1">
               <svg
                 className="w-8 h-8 text-yellow-500"
                 fill="none"
@@ -101,7 +113,7 @@ export default function DashboardPage() {
               <p className="text-sm text-text-secondary">Mon</p>
               <p className="text-lg font-medium">20℃</p>
             </div>
-            <div className="card-themed rounded-lg p-4 flex-1">
+            <div className="px-4 flex-1">
               <svg
                 className="w-8 h-8 text-gray-500"
                 fill="none"
@@ -118,7 +130,7 @@ export default function DashboardPage() {
               <p className="text-sm text-text-secondary">Tue</p>
               <p className="text-lg font-medium">22℃</p>
             </div>
-            <div className="card-themed rounded-lg p-4 flex-1">
+            <div className="px-4 flex-1">
               <svg
                 className="w-8 h-8 text-gray-500"
                 fill="none"
@@ -135,7 +147,7 @@ export default function DashboardPage() {
               <p className="text-sm text-text-secondary">Wed</p>
               <p className="text-lg font-medium">24℃</p>
             </div>
-            <div className="card-themed rounded-lg p-4 flex-1">
+            <div className="px-4 flex-1">
               <svg
                 className="w-8 h-8 text-gray-500"
                 fill="none"
@@ -152,7 +164,7 @@ export default function DashboardPage() {
               <p className="text-sm text-text-secondary">Thu</p>
               <p className="text-lg font-medium">21℃</p>
             </div>
-            <div className="card-themed rounded-lg p-4 flex-1">
+            <div className="px-4 flex-1">
               <svg
                 className="w-8 h-8 text-gray-500"
                 fill="none"
@@ -170,46 +182,60 @@ export default function DashboardPage() {
               <p className="text-lg font-medium">18℃</p>
             </div>
           </div>
+
+          <h3 className="text-lg mt-4 font-semibold">Sensor Data</h3>
+          <div className="flex flex-col justify-start gap-2 divide-border-primary divide-y">
+            <div className="flex flex-row justify-start items-center">
+              <FaTemperatureQuarter className="w-6 h-6" />
+              <div className="p-2 flex-1">
+                <p className="text-sm text-text-secondary">Temperature</p>
+                <p className="text-lg font-medium">22.5℃</p>
+              </div>
+            </div>
+            <div className="flex flex-row justify-start items-center">
+              <FaDroplet className="w-6 h-6" />
+              <div className="p-2 flex-1">
+                <p className="text-sm text-text-secondary">Humidity</p>
+                <p className="text-lg font-medium">60%</p>
+              </div>
+            </div>
+            <div className="flex flex-row justify-start items-center">
+              <FaWind className="w-6 h-6" />
+              <div className="p-2 flex-1">
+                <p className="text-sm text-text-secondary">Wind Speed</p>
+                <p className="text-lg font-medium">5 km/h</p>
+              </div>
+            </div>
+            <div className="flex flex-row justify-start items-center">
+              <FaCloudRain className="w-6 h-6" />
+              <div className="p-2 flex-1">
+                <p className="text-sm text-text-secondary">Rain Sensor</p>
+                <p className="text-lg font-medium">0 mm</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-3 col-span-3 h-full auto-rows-[minmax(170px,1fr)]">
-          <div className="card-themed p-4 flex items-center gap-4 lg:col-start-1 lg:row-start-1" />
-
+        {/* Routines Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-3 col-span-3 h-full">
+          <div className="card-themed p-4 flex items-center gap-4 lg:col-start-1 lg:row-start-2" />
+          <div className="card-themed p-4 flex items-center gap-4 lg:col-start-2 lg:row-start-2" />
+          <WindowSettings />
           <LightSettings />
 
           <ACControl />
 
-          <div className="card-themed p-4 grid grid-cols-1 gap-4 lg:col-start-4 lg:row-start-1 lg:row-span-2">
-            <QuickActionButton icon="🎛️" label="Profiles" />
-            <QuickActionButton icon="+" label="New Profile" />
-            <QuickActionButton icon="📊" label="Statistics" />
-            <QuickActionButton icon="⚙️" label="Configure" />
+          <div className="card-themed p-3 grid grid-cols-1 gap-3 lg:col-start-4 lg:row-start-1 lg:row-span-2">
+            <h2 className="text-xl font-semibold">Routines</h2>
+            <h2 className=" font-semibold text-text-tertiary!">
+              Current Routine "Default"
+            </h2>
+            <QuickActionButton icon="🎛️" label="Routines" />
+            <QuickActionButton icon="➕" label="Add manual specification" />
+            <QuickActionButton icon="📊" label="Routine Diary" />
+            <QuickActionButton icon="⚙️" label="Configure Routines" />
           </div>
-
-          <div className="card-themed p-4 flex items-center gap-4 lg:col-start-1 lg:row-start-2" />
-          <div className="card-themed p-4 flex items-center gap-4 lg:col-start-2 lg:row-start-2" />
         </div>
-      </div>
-    </div>
-  );
-}
-
-// Activity Item Component
-interface ActivityItemProps {
-  title: string;
-  description: string;
-  time: string;
-}
-
-function ActivityItem({ title, description, time }: ActivityItemProps) {
-  return (
-    <div className="flex items-start gap-3 pb-4 border-b border-border-primary last:border-0 last:pb-0">
-      <div className="w-2 h-2 mt-2 rounded-full bg-accent-primary" />
-      <div className="flex-1 min-w-0">
-        <p className="font-medium">{title}</p>
-        <p className="text-sm text-text-tertiary truncate">{description}</p>
-        <p className="text-xs text-text-muted mt-1">{time}</p>
       </div>
     </div>
   );
@@ -223,8 +249,8 @@ interface QuickActionButtonProps {
 
 function QuickActionButton({ icon, label }: QuickActionButtonProps) {
   return (
-    <button className="flex flex-col items-center justify-center p-4 rounded-lg btn-secondary ">
-      <span className="text-2xl mb-2">{icon}</span>
+    <button className="flex gap-2 items-center justify-start rounded-lg btn-secondary ">
+      <span className="text-2xl ">{icon}</span>
       <span className="text-sm font-medium">{label}</span>
     </button>
   );
@@ -241,11 +267,33 @@ function ACControl() {
   const dash = pct * circumference;
 
   return (
-    <div className="card-themed p-3 flex flex-col items-center gap-4 row-span-2 w-full">
-      <h2 className="self-start text-xl font-bold">AC Control</h2>
+    <div className="relative card-themed p-3 flex flex-col items-center gap-4 row-span-2 w-full">
+      <Link
+        href="/climatization"
+        title="Manual Configuration"
+        className="right-3 top-3 absolute hover:scale-115"
+        aria-label="Go to climatization settings"
+      >
+        <BiSolidWrench className="w-6 h-6 text-text-secondary" />
+      </Link>
+
+      <h2 className="self-start text-xl font-semibold">AC Control</h2>
       <div className="flex flex-col items-center gap-2">
-        <div className="relative w-56 h-56">
+        <div className="relative w-58 h-56">
           <svg viewBox="0 0 120 120" className="w-56 h-56">
+            <defs>
+              <linearGradient
+                id="ac-progress-gradient"
+                x1="12"
+                y1="108"
+                x2="108"
+                y2="12"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0%" stopColor="#2563eb" />
+                <stop offset="100%" stopColor="#60a5fa" />
+              </linearGradient>
+            </defs>
             <circle
               cx="60"
               cy="60"
@@ -259,9 +307,8 @@ function ACControl() {
               cx="60"
               cy="60"
               r={radius}
-              strokeWidth="4"
-              stroke="currentColor"
-              className="text-accent-primary"
+              strokeWidth="5"
+              stroke="url(#ac-progress-gradient)"
               fill="none"
               strokeLinecap="round"
               strokeDasharray={`${dash} ${circumference}`}
@@ -307,10 +354,9 @@ function ACControl() {
               Timer
             </button>
             <button className="flex flex-col items-center text-sm text-text-secondary">
-              <MdOutlineLightMode  className="w-6 h-6 mb-1" />
+              <MdOutlineLightMode className="w-6 h-6 mb-1" />
               Mode
             </button>
-
           </div>
         </div>
       </div>
@@ -322,25 +368,34 @@ function LightSettings() {
   const [intensity, setIntensity] = useState(79);
 
   return (
-    <div className="card-themed p-3 flex flex-col gap-5 rounded-xl lg:col-start-2 lg:row-start-1">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <h2 className="text-xl font-semibold">Lights</h2>
-        </div>
-        <span className="text-lg text-text-secondary">{intensity}%</span>
-      </div>
-
+    <div className="relative card-themed p-3 flex flex-col gap-3 rounded-xl lg:col-start-2 lg:row-start-1">
+      <h2 className="text-xl font-semibold">Lights</h2>
+      <Link
+        href="/lighting"
+        title="Manual Configuration"
+        className="right-3 top-3 absolute hover:scale-115"
+        aria-label="Go to lighting settings"
+      >
+        <BiSolidWrench className="w-6 h-6 text-text-secondary" />
+      </Link>
       <div className="space-y-3">
-        <div className="relative pt-1">
+        <div className="relative">
+          <h2 className="text-2xl font-semibold text-text-secondary w-full text-right">
+            {intensity}%
+          </h2>
+
           <input
             type="range"
             min={0}
             max={100}
             value={intensity}
             onChange={(event) => setIntensity(Number(event.target.value))}
-            className="w-full h-2 rounded-full appearance-none cursor-pointer accent-yellow-300 bg-border-primary"
+            style={{
+              background: `linear-gradient(to right, rgb(255, 255, 0) 0%, rgb(255, 255, 255) ${intensity}%, var(--color-bg-primary) ${intensity}%, var(--color-bg-primary) 100%)`,
+            }}
+            className="w-full h-3 rounded-full appearance-none cursor-pointer"
           />
-          <div className="mt-3 flex justify-between text-xs text-text-tertiary px-1">
+          <div className="flex justify-between text-xs text-text-tertiary px-1">
             <span>0</span>
             <span>50</span>
             <span>100</span>
@@ -348,10 +403,14 @@ function LightSettings() {
         </div>
       </div>
 
-      <div className="space-y-3">
-        <div className="flex items-center gap-2">
-          <PiTimer className="w-5 h-5 text-text-secondary" />
-          <h3 className="text-lg font-semibold">Schedule</h3>
+      <div className="space-y-3 mt-6">
+        <div className="flex justify-between items-center gap-2">
+          <h3 className="text-lg font-semibold inline-flex items-center gap-1">
+            <PiTimer className="w-6 h-6 text-text-secondary" /> Schedule
+          </h3>
+          <span className="text-xs font-semibold text-text-muted">
+            Default Routine
+          </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -362,11 +421,25 @@ function LightSettings() {
             </span>
           </div>
           <div className="flex items-center overflow-hidden rounded-full border border-border-primary bg-bg-secondary/40">
-            <span className="px-4 py-1  text-sm text-text-secondary">Off at</span>
+            <span className="px-4 py-1  text-sm text-text-secondary">
+              Off at
+            </span>
             <span className="flex-1 px-4 py-1 text-sm text-center bg-bg-primary/80 font-medium">
               22:30
             </span>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function WindowSettings() {
+  return (
+    <div className="card-themed p-3 flex flex-col gap-5 rounded-xl lg:col-start-1 lg:row-start-1">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <h2 className="text-xl font-semibold">Windows</h2>
         </div>
       </div>
     </div>
