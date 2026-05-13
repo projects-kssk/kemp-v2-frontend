@@ -17,7 +17,7 @@ interface SidebarContextType {
 }
 
 const SidebarContext = createContext<SidebarContextType>({
-  isCollapsed: false,
+  isCollapsed: true,
   isMobileOpen: false,
   toggleCollapse: () => {},
   toggleMobile: () => {},
@@ -25,18 +25,13 @@ const SidebarContext = createContext<SidebarContextType>({
 });
 
 export function SidebarProvider({ children }: { children: React.ReactNode }) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
       setMounted(true);
-      const savedCollapsed = localStorage.getItem("sidebar-collapsed");
-
-      if (savedCollapsed !== null) {
-        setIsCollapsed(savedCollapsed === "true");
-      }
     });
 
     return () => cancelAnimationFrame(frame);
@@ -74,7 +69,7 @@ export function SidebarProvider({ children }: { children: React.ReactNode }) {
     return (
       <SidebarContext.Provider
         value={{
-          isCollapsed: false,
+          isCollapsed: true,
           isMobileOpen: false,
           toggleCollapse: () => {},
           toggleMobile: () => {},

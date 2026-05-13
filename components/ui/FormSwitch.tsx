@@ -86,7 +86,7 @@ export const FormSwitch = ({
           type="button"
           onClick={() => onChange(item.key)}
           aria-label={item.label}
-          className={`relative z-10 whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold transition-colors duration-300 sm:text-sm ${
+          className={`relative z-10 whitespace-nowrap rounded-full px-4 py-2 text-xs transition-colors duration-300 sm:text-sm ${
             activeKey === item.key
               ? "text-text-primary"
               : "text-text-secondary hover:text-text-primary"
@@ -97,10 +97,8 @@ export const FormSwitch = ({
             {item.meta ? (
               <span
                 aria-hidden="true"
-                className={`text-[11px] font-semibold ${
-                  activeKey === item.key
-                    ? "text-text-muted"
-                    : "text-text-muted"
+                className={`text-[11px] ${
+                  activeKey === item.key ? "text-text-muted" : "text-text-muted"
                 }`}
               >
                 {item.meta}

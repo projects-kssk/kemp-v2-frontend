@@ -16,9 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Page Title",
-  description:
-    "A Next.js template with Tailwind CSS, dark mode, and responsive layout",
+  title: "KEMPv2",
+  description: "Kemp controls smart factory automation application",
 };
 
 export default function RootLayout({

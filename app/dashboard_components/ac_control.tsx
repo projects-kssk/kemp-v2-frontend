@@ -4,6 +4,7 @@ import { useState } from "react";
 import { PiFan, PiTimer } from "react-icons/pi";
 import { MdOutlineLightMode } from "react-icons/md";
 import { BiSolidWrench } from "react-icons/bi";
+import { LuPlus, LuMinus } from "react-icons/lu";
 import Link from "next/link";
 
 export default function ACControl() {
@@ -39,10 +40,10 @@ export default function ACControl() {
         <BiSolidWrench className="w-6 h-6 text-text-secondary" />
       </Link>
 
-      <h2 className="self-start text-xl font-semibold">AC Control</h2>
-      <div className="flex flex-col items-center gap-2">
-        <div className="relative w-58 h-56">
-          <svg viewBox="0 0 120 120" className="w-56 h-56">
+      <h2 className="self-start text-xl font-light">AC Control</h2>
+      <div className="flex flex-col items-center ">
+        <div className="relative w-full h-60 flex items-center justify-center">
+          <svg viewBox="0 0 120 120" className="w-56 h-56 absolute">
             <defs>
               <linearGradient
                 id="acGradient"
@@ -91,44 +92,42 @@ export default function ACControl() {
             />
           </svg>
 
-          <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-            <div className="text-4xl font-bold">{temp}°</div>
-          </div>
+          <p className="pl-4 pb-2 text-6xl font-light">{temp}°</p>
+          <p className="absolute bottom-4 left-0 text-xl font-light">15°</p>
+          <p className="absolute bottom-4 right-0 text-xl font-light">32°</p>
         </div>
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-12">
             <div className="flex items-center gap-2">
-              <div className="text-xl">15°</div>
               <button
                 onClick={() => setTemp((t) => Math.max(min, t - 1))}
-                className="w-12 h-12 rounded-full bg-card bg-opacity-20 flex items-center justify-center text-xl btn-secondary pb-1 rounded-full!"
+                className="w-12 h-12 rounded-full bg-card bg-opacity-20 flex items-center justify-center text-3xl btn-tertiary  rounded-full!"
                 aria-label="decrease temp"
               >
-                −
+                <LuMinus />
               </button>
             </div>
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setTemp((t) => Math.min(max, t + 1))}
-                className="w-12 h-12 rounded-full bg-card bg-opacity-20 flex items-center justify-center text-xl btn-secondary pb-1 rounded-full!"
+                className="w-12 h-12 rounded-full bg-card bg-opacity-20 flex items-center justify-center text-3xl btn-tertiary  rounded-full!"
                 aria-label="increase temp"
               >
-                +
+                <LuPlus />
               </button>
-              <div className="text-xl ">32°</div>
             </div>
           </div>
 
-          <div className="flex items-center gap-8 mt-8">
-            <button className="flex flex-col items-center text-sm text-text-secondary">
+          <div className="flex items-center gap-12 mt-8">
+            <button className="flex flex-col items-center text-sm text-text-secondary font-light">
               <PiFan className="w-6 h-6 mb-1" />
               Fans
             </button>
-            <button className="flex flex-col items-center text-sm text-text-secondary ">
+            <button className="flex flex-col items-center text-sm text-text-secondary font-light ">
               <PiTimer className="w-6 h-6 mb-1" />
               Timer
             </button>
-            <button className="flex flex-col items-center text-sm text-text-secondary">
+            <button className="flex flex-col items-center text-sm text-text-secondary font-light">
               <MdOutlineLightMode className="w-6 h-6 mb-1" />
               Mode
             </button>

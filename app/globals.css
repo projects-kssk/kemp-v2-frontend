@@ -573,7 +573,7 @@ blockquote {
   color: #fafafa;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  font-weight: 500;
+  font-weight: 400;
   transition: background-color 0.15s ease;
 }
 
@@ -589,7 +589,7 @@ blockquote {
   padding: 0.5rem;
   border: 1px solid transparent;
   border-radius: 0.5rem;
-  font-weight: 500;
+  font-weight: 400;
   transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
@@ -605,7 +605,7 @@ blockquote {
   color: var(--color-text-inverse);
   padding: 0.5rem;
   border-radius: 0.5rem;
-  font-weight: 500;
+  font-weight: 400;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
@@ -621,7 +621,7 @@ blockquote {
   color: #fafafa;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  font-weight: 500;
+  font-weight: 400;
   transition: background-color 0.15s ease;
 }
 
@@ -635,7 +635,7 @@ blockquote {
   color: #fafafa;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  font-weight: 500;
+  font-weight: 400;
   transition: background-color 0.15s ease;
 }
 
@@ -649,7 +649,7 @@ blockquote {
   color: #fafafa;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  font-weight: 500;
+  font-weight: 400;
   transition: background-color 0.15s ease;
 }
 
@@ -663,7 +663,7 @@ blockquote {
   color: #fafafa;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  font-weight: 500;
+  font-weight: 400;
   transition: background-color 0.15s ease;
 }
 
@@ -677,7 +677,7 @@ blockquote {
   color: #fafafa;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  font-weight: 500;
+  font-weight: 400;
   transition: background-color 0.15s ease;
 }
 
@@ -692,7 +692,7 @@ blockquote {
   background-color: var(--color-accent-primary);
   color: #fafafa;
   border-radius: 9999px;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   display: inline-block;
 }
@@ -701,7 +701,7 @@ blockquote {
   background-color: var(--color-bg-tertiary);
   color: var(--color-text-primary);
   border-radius: 9999px;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   display: inline-block;
 }
@@ -710,7 +710,7 @@ blockquote {
   background-color: var(--color-accent-success);
   color: color-mix(in srgb, #fafafa 95%, var(--color-accent-success));
   border-radius: 9999px;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   display: inline-block;
 }
@@ -719,7 +719,7 @@ blockquote {
   background-color: var(--color-accent-warning);
   color: color-mix(in srgb, #fafafa 95%, var(--color-accent-warning));
   border-radius: 9999px;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   display: inline-block;
 }
@@ -728,7 +728,7 @@ blockquote {
   background-color: var(--color-accent-danger);
   color: color-mix(in srgb, #fafafa 95%, var(--color-accent-danger));
   border-radius: 9999px;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   display: inline-block;
 }
@@ -737,7 +737,7 @@ blockquote {
   background-color: var(--color-accent-information);
   color: color-mix(in srgb, #fafafa 95%, var(--color-accent-information));
   border-radius: 9999px;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   display: inline-block;
 }
@@ -746,7 +746,7 @@ blockquote {
   background-color: var(--color-accent-orange);
   color: color-mix(in srgb, #fafafa 95%, var(--color-accent-orange));
   border-radius: 9999px;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   display: inline-block;
 }

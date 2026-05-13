@@ -150,7 +150,7 @@ export function Sidebar({ hasNavbar = true }: { hasNavbar?: boolean }) {
         {/* Navigation */}
         <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto overflow-x-hidden">
           {/* Collapse toggle - desktop only */}
-          <button
+          {/* <button
             onClick={toggleCollapse}
             className={`
               hidden lg:flex items-center gap-3 w-full px-2 py-2.5 rounded-lg
@@ -163,7 +163,7 @@ export function Sidebar({ hasNavbar = true }: { hasNavbar?: boolean }) {
           >
             <CollapseIcon isCollapsed={isCollapsed} />
             {!isCollapsed && <span>Collapse</span>}
-          </button>
+          </button> */}
 
           {mainNavItems.map((item) => (
             <SidebarItem

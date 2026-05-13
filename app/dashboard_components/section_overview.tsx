@@ -25,7 +25,7 @@ export default function SectionOverview() {
       <div className="flex items-start justify-between gap-4 mb-8">
         <div className="flex items-center gap-2">
           <div className="bg-accent-success h-4 w-4 rounded-full mt-0.5" />
-          <h2 className="text-xl font-semibold">Live Overview</h2>
+          <h2 className="text-xl font-light">Live Overview</h2>
         </div>
         <FormSwitch
           items={[
@@ -44,14 +44,13 @@ export default function SectionOverview() {
         />
       </div>
 
-
-        {selectedMap ? (
-          <img
-            src={selectedMap}
-            alt="Section map"
-            className={`max-h-96 w-full object-contain ${imgFilterClass}`}
-          />
-        ) : null}
+      {selectedMap ? (
+        <img
+          src={selectedMap}
+          alt="Section map"
+          className={`max-h-96 w-full object-contain ${imgFilterClass}`}
+        />
+      ) : null}
     </div>
   );
 }
