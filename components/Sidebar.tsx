@@ -14,6 +14,9 @@ import {
   CollapseIcon,
   SignOutIcon,
 } from "@/components/icons";
+import { LuCircuitBoard } from "react-icons/lu";
+import { MdOutlineWindow } from "react-icons/md";
+import { PiBlueprintBold } from "react-icons/pi";
 
 interface NavItem {
   name: string;
@@ -30,9 +33,18 @@ const mainNavItems: NavItem[] = [
     href: "/climatization",
     icon: <PiFanBold className="w-5 h-5" />,
   },
+  {
+    name: "Windows",
+    href: "/windows",
+    icon: <MdOutlineWindow className="w-5 h-5" />,
+  },
   { name: "Devices", href: "/devices", icon: <AnalyticsIcon /> },
-  { name: "Map", href: "/map", icon: <DocumentIcon /> },
-  { name: "Modules", href: "/modules", icon: <AnalyticsIcon /> },
+  { name: "Map", href: "/map", icon: <PiBlueprintBold className="w-5 h-5" /> },
+  {
+    name: "Modules",
+    href: "/modules",
+    icon: <LuCircuitBoard className="w-5 h-5" />,
+  },
 ];
 
 const bottomNavItems: NavItem[] = [
