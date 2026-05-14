@@ -46,9 +46,7 @@ export default function WindowSettings() {
             <h3 className="text-lg font-light inline-flex items-center gap-1">
               <PiTimer className="w-6 h-6 text-text-secondary" /> Schedule
             </h3>
-            <span className="text-xs font-light text-text-muted">
-              Default Routine
-            </span>
+            <span className="\ font-light text-text-muted">Default Routine</span>
           </div>
           <div className="flex justify-center items-center gap-2 mt-1">
             <div className="bg-accent-success h-3 w-3 rounded-full" />
